@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <div class="container">
+        <div class="navigation">
+            <button id="show-list-view">List View</button>
+            <button id="show-calendar-view">Calendar View</button>
+            <button id="clear-all-tasks" style="background-color: red; color: white;">Clear All Tasks</button>
+        </div>
+        <div class="task-form">
+            <input type="text" id="task-title" placeholder="Task Title">
+            <input type="date" id="task-date">
+            <select id="task-priority">
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low Priority</option>
+            </select>
+            <input type="url" id="task-link" placeholder="Task Link (optional)">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+        <div id="list-view" class="task-container">
+            <table class="task-list">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>
+                            Deadline
+                            <button id="sort-by-date" class="sort-btn">Sort</button>
+                        </th>
+                        <th>
+                            Priority
+                            <button id="sort-by-priority" class="sort-btn">Sort</button>
+                        </th>
+                        <th>Link</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="task-list"></tbody>
+            </table>
+        </div>
+        <div id="calendar-view" class="calendar-container" style="display: none;">
+            <div class="calendar-header">
+                <button id="prev-month">← Previous</button>
+                <h3 id="calendar-month"></h3>
+                <button id="next-month">Next →</button>
+            </div>
+            <div id="calendar" class="calendar"></div>
+        </div>
+    </div>
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-header">
+            <h4 id="popup-title">Tasks</h4>
+            <button onclick="closePopup()">×</button>
+        </div>
+        <ul id="popup-tasks"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
